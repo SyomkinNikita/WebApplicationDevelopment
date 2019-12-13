@@ -14,9 +14,10 @@ class ExampleClassBased(View):
 
 class OrdersView(View):
     def get(self, request):
-        data = {
+        data     = {
             'orders': [
-                {'title': 'Первый заказ', 'id': 1}
+                {'title': 'Первый заказ', 'id': 1},
+                {'title': 'Второй заказ', 'id': 2}
             ]
         }
         return render(request, 'orders.html', data)

@@ -1,7 +1,7 @@
-"""Lab4 URL Configuration
+"""Lab5 URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/2.2/topics/http/urls/
+    https://docs.djangoproject.com/en/3.0/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -13,16 +13,9 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path
 
-from Lab4.apps.my_app.views import function_view, ExampleClassBased, OrderView, OrdersView
-
 urlpatterns = [
-    url(r'function_view/', function_view),
-    url(r'class_based_view/', ExampleClassBased.as_view()),
-    url(r'OrdersView/', OrdersView.as_view()),
-    url(r'^order/(?P<id>\d+)', OrderView.as_view(), name='order_url'),
     path('admin/', admin.site.urls),
 ]
