@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Тестовая страница</title>
+</head>
+<body class="font_robotic">
+    <div class="row">
+        <div class="col">
+            <h1>Сырое ДЗ</h1>
+        </div>
+    </div>
+
+    <div>
+        <div class="col">
+            {% block menu %}
+            {% endblock %}
+        </div>
+        <div class="col">
+            {% block contents %}
+            {% endblock %}
+        </div>
+    </div>
+</body>
+</html>

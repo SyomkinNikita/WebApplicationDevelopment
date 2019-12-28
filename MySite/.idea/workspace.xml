@@ -50,6 +50,7 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="MySite.settings" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
@@ -78,7 +79,13 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1576353612375</updated>
-      <workItem from="1576353615430" duration="14245000" />
+      <workItem from="1576353615430" duration="19665000" />
+      <workItem from="1577195214022" duration="787000" />
+      <workItem from="1577196110024" duration="386000" />
+      <workItem from="1577196540721" duration="1223000" />
+      <workItem from="1577265959105" duration="3026000" />
+      <workItem from="1577391902414" duration="593000" />
+      <workItem from="1577392525033" duration="8506000" />
     </task>
     <servers />
   </component>
@@ -90,7 +97,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

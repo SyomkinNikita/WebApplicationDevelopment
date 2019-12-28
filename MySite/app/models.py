@@ -1,6 +1,16 @@
 from django.db import models
 
 
+class User(models.Model):
+    name = models.CharField(max_length=255)
+    number = models.CharField(max_length=255)
+    mail = models.CharField(max_length=255)
+    img = models.ImageField()
+
+    def __str__(self):
+        return self.name
+
+
 class PostImage(models.Model):
     image = models.ImageField(upload_to='postimage')
     title = models.CharField(max_length=255, blank=True, null=True)
