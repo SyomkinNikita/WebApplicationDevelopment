@@ -1,7 +1,8 @@
 from django.urls import path, re_path
-from app import views
-# from app.views import index
+from django.views.generic import RedirectView
 
-# urlpatterns = [
-#   path('', index, name='home')
-# ]
+from app import views
+
+urlpatterns = [
+
+]

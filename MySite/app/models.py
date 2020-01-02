@@ -1,3 +1,5 @@
+import uuid
+
 from django.db import models
 
 
@@ -11,15 +13,19 @@ class User(models.Model):
         return self.name
 
 
-class PostImage(models.Model):
-    image = models.ImageField(upload_to='postimage')
-    title = models.CharField(max_length=255, blank=True, null=True)
+class CarPicture(models.Model):
+    image = models.ImageField()
+    title = models.CharField(max_length=50, help_text='Enter title')
 
-    class Meta:
-        verbose_name = 'postimage'
-
-    def __unicode__(self):
+    def __str__(self):
         return self.title
+
+
+class CarPictureInstance(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4(), help_text='Уникальный идентификатор')
+    image = models.ForeignKey('CarPicture', on_delete=models.SET_NULL, null=True)
+    
+
 
 
 class Portfolio(models.Model):
@@ -54,4 +60,3 @@ class Resume(models.Model):
     description = models.CharField(max_length=255, blank=True)
     document = models.FileField(upload_to='resume/')
     uploaded_at = models.DateTimeField(auto_now_add=True)
-
