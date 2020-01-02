@@ -2,8 +2,6 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
 
-from app.models import PostImage, Portfolio
-
 
 class HomePage(View):
     def get(self, request, *args, **kwargs):
@@ -11,26 +9,6 @@ class HomePage(View):
         return render(
             request,
             "home.html",
-            {
-
-            }
-        )
-
-
-class Registration(View):
-    def get(self, request):
-        return render(
-            request,
-            'registration.html',
-            {
-
-            }
-        )
-
-    def post(self, request):
-        return render(
-            request,
-            'home.html',
             {
 
             }

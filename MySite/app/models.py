@@ -3,16 +3,6 @@ import uuid
 from django.db import models
 
 
-class User(models.Model):
-    name = models.CharField(max_length=255)
-    number = models.CharField(max_length=255)
-    mail = models.CharField(max_length=255)
-    img = models.ImageField()
-
-    def __str__(self):
-        return self.name
-
-
 class CarPicture(models.Model):
     image = models.ImageField()
     title = models.CharField(max_length=50, help_text='Enter title')
@@ -21,42 +11,29 @@ class CarPicture(models.Model):
         return self.title
 
 
+# UUIDField используется для поля id, чтобы установить его как primary_key для этой модели. Этот тип поля выделяет
+# глобальное уникальное значение для каждого экземпляра.
+# DateField используется для данных due_back (при которых ожидается, что наклейка появится после заимствования или
+# обслуживания).
+# Это значение может быть blank или null (необходимо, когда наклейка доступна).
+# Метаданные модели (Class Meta) используют это поле для упорядочивания записей, когда они возвращаются в запросе.
+
+
 class CarPictureInstance(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4(), help_text='Уникальный идентификатор')
     image = models.ForeignKey('CarPicture', on_delete=models.SET_NULL, null=True)
-    
+    imprint = models.CharField(max_length=200)
+    due_back = models.DateField(null=True, blank=True)
 
+    LOAN_STATUS = (
+        ('a', 'Available'),
+        ('r', 'Reserved'),
+    )
 
-
-class Portfolio(models.Model):
-    title = models.CharField(max_length=80)
-    sub = models.CharField(max_length=40, null=True, blank=True)
-    body = models.TextField()
-    link = models.URLField(null=True, blank=True)
-    pic = models.ImageField(upload_to='portfolio/')
-    pub = models.DateTimeField(auto_now=False)
-    draft = models.BooleanField(default=False)
-
-    def __str__(self):
-        return self.title
-
-
-class Project(models.Model):
-    title = models.CharField(max_length=100)
-    lead = models.TextField()
-    description = models.TextField()
-    technology = models.CharField(max_length=20)
-    link = models.URLField(null=True, blank=True)
-    image = models.ImageField(upload_to='project')
+    status = models.CharField(max_length=1, choices=LOAN_STATUS, blank=True, default='m', help_text='Status')
 
     class Meta:
-        verbose_name = "project"
+        ordering = ["due_back"]
 
-    def __unicode__(self):
-        return self.title
-
-
-class Resume(models.Model):
-    description = models.CharField(max_length=255, blank=True)
-    document = models.FileField(upload_to='resume/')
-    uploaded_at = models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return '%s' % self.id
