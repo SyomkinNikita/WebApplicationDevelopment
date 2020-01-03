@@ -2,54 +2,18 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
 
-
-class HomePage(View):
-    def get(self, request, *args, **kwargs):
-        print('!@#$%^: ', request)
-        return render(
-            request,
-            "home.html",
-            {
-
-            }
-        )
+from app.models import CarPicture, CarPictureInstance
 
 
-class Auth(View):
+def index(request):
+    # Функция для отображения домашней страницы
+    num_image = CarPicture.objects.all().count()
+    num_instance = CarPictureInstance.objects.all().count()
+    # Доступные книги по статусу
+    num_instance_available = CarPictureInstance.objects.filter(status__exact='a').count()
 
-    def get(self, request, *args, **kwargs):
-        print('!@#$%^: ', request)
-        return render(
-            request,
-            "base.html",
-            {
-                "list": ['1', '2', '3', '4'],
-            }
-        )
-
-    def post(self, request):
-
-        errors = []
-        if request.method == 'POST':
-            username = request.POST.get('username')
-            if not username:
-                errors.append('Введите логин')
-            elif len(username) < 5:
-                errors.append('Логин должен привышать 5 символов')
-
-            password = request.POST.get('password')
-            if not password:
-                errors.append('Введите пароль')
-            elif len(password) < 6:
-                errors.append('Длинна пароля должна превышать 6 символов')
-            password_repeat = request.POST.get('password2')
-
-            if password != password_repeat:
-                errors.append('Пароли должны совпадать')
-
-            if not errors:
-                # успех... создание модели пользователя
-
-                return HttpResponse('okay')
-
-        return render(request, 'auth.html', {'errors': errors})
+    # HTML отрисовка
+    # Вот так передаются данные в шаблон, то есть их надо сначала вытянуть в въюшки и передать в шаблон!!!
+    return render(request, 'index.html', context={'num_image': num_image, 'num_instance': num_instance,
+                                                  'num_instance_available': num_instance_available},
+                  )
