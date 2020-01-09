@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Book List</h1>
+
+    {% if carpicture_list %}
+    <ul>
+
+      {% for pictures in carpicture_list %}
+      <li>
+        <a href="{{ pictures.get_absolute_url }}">{{ pictures.title }}</a> {{ pictures.image }}
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>There are no books in the library.</p>
+    {% endif %}       
+{% endblock %}
