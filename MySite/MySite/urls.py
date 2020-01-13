@@ -16,13 +16,17 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.static import static
 
+from MySite import settings
 from app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^$', views.index, name='index'),
     url(r'^carpictures/$', views.PictureListView.as_view(), name='carpictures'),
-    url(r'^carpicture/(?P<pk>\d+)$', views.PictureListView.as_view(), name='carpicture-detail'),
+    url(r'^carpicture/(?P<pk>\d+)$', views.PictureDetailView.as_view(), name='carpicture-detail'),
     path('accounts/', include('django.contrib.auth.urls')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+

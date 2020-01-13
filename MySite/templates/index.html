@@ -1,11 +1,63 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Local Library Home</h1>
+<header>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
+            <div class="container">
+                <a href="{% url 'index' %}" class="navbar-brand">Menu</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+                aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle Navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-  <p>Welcome to <em>LocalLibrary</em>, a very basic Django website developed as a tutorial example on the Mozilla Developer Network.</p>
+                <div class="collapse navbar-collapse" id="basicExampleNav">
+                    <ul class="navbar-nav mr-auto smooth-scroll">
+                        <li class="nav-item">
+                            <a href="{% url 'carpictures' %}" class="nav-link waves-effect waves-light">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#best-features" class="nav-link waves-effect waves-light">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#examples" class="nav-link waves-effect waves-light">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#gallery" class="nav-link waves-effect waves-light">News</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#contact" class="nav-link waves-effect waves-light">Support</a>
+                        </li>
+                    </ul>
 
-<h2>Dynamic content</h2>
+                        <ul class="navbar-nav nav-flex-icons">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link waves-effect waves-light">
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </li>
+                        </ul>
+
+                </div>
+            </div>
+        </nav>
+    <div id="intro" class="view">
+        <div class="mask rgba-black-strong">
+            <div class="container-fluid d-flex align-items-center justify-content-center h-100">
+                <div class="row d-flex justify-content-center text-center">
+                    <div class="col-md-10">
+                        <h2 class="display-4 font-weight-bold white-text pt-5 mb-2">
+                            Главная страница
+                        </h2>
+                        <hr class="hr-light">
+                        <h4 class="white-text my-4">Testing</h4>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </header>
+
 
   <p>The library has the following record counts:</p>
   <ul>
@@ -13,5 +65,6 @@
     <li><strong>Copies:</strong> {{ num_instance }}</li>
     <li><strong>Copies available:</strong> {{ num_instance_available }}</li>
   </ul>
+
 
 {% endblock %}

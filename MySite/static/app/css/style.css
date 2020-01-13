@@ -1,0 +1,8 @@
+html, body, header, #intro{
+    height: 100%;
+}
+body{
+    background: url("../img/red-and-yellow-wallpaper-891030.jpg");
+    -webkit-background-size: cover;
+    background-size: cover;
+}

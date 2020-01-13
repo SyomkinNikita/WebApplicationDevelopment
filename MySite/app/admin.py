@@ -13,8 +13,8 @@ class CarPictureInline(admin.TabularInline):
 
 @admin.register(CarPicture)
 class CarPictureAdmin(admin.ModelAdmin):
-    list_display = ('image', 'title')
-    inlines = [CarPictureInline]
+    list_display = ('title', 'image')
+    # inlines = [CarPictureInline]
 
 
 # Register the Admin classes for BookInstance using the decorator

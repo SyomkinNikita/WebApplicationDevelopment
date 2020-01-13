@@ -11,26 +11,30 @@ def index(request):
     num_instance = CarPictureInstance.objects.all().count()
     # Доступные книги по статусу
     num_instance_available = CarPictureInstance.objects.filter(status__exact='a').count()
+    num_visits = request.session.get('num_visits', 0)
+    request.session['num_visits'] = num_visits + 1
 
     # HTML отрисовка
     # Вот так передаются данные в шаблон, то есть их надо сначала вытянуть в въюшки и передать в шаблон!!!
     return render(request, 'index.html', context={'num_image': num_image, 'num_instance': num_instance,
-                                                  'num_instance_available': num_instance_available},
+                                                  'num_instance_available': num_instance_available,
+                                                  'num_visits':num_visits},
+
                   )
 
 
-def carpicture_detail_view(request, pk):
+def picture_detail_view(request, pk):
     try:
         carpicture_id = CarPicture.objects.get(pk=pk)
     except CarPicture.DoesNotExist:
-        raise Http404("Image does not exist")
+        raise Http404("Book does not exist")
 
     # book_id=get_object_or_404(Book, pk=pk)
 
     return render(
         request,
         'app/carpicture_detail.html',
-        context={'carpicture': carpicture_id, }
+        context={'picture': carpicture_id, }
     )
 
 
@@ -38,9 +42,9 @@ def carpicture_detail_view(request, pk):
 # book_list (если обобщить, то "the_model_name_list").
 class PictureListView(generic.ListView):
     model = CarPicture
+    paginate_by = 10
 
 
 class PictureDetailView(generic.DetailView):
     model = CarPicture
-
-
+    context_object_name = 'carpicture_detail'

@@ -1,19 +1,24 @@
 {% extends "base.html" %}
+{% load static %}
+{% static "img/1.png" as no_photo %}
+
 
 {% block content %}
-    <h1>Book List</h1>
+    <h1>Каталог изображений</h1>
 
     {% if carpicture_list %}
     <ul>
 
       {% for pictures in carpicture_list %}
       <li>
-        <a href="{{ pictures.get_absolute_url }}">{{ pictures.title }}</a> {{ pictures.image }}
+        <a href="{{ pictures.get_absolute_url }}">{{ pictures.title }}</a>
+        <img src="{{ pictures.image.url }}" alt="r">
+
       </li>
       {% endfor %}
 
     </ul>
     {% else %}
-      <p>There are no books in the library.</p>
+      <p>В нашем каталоге нет книг :(</p>
     {% endif %}       
 {% endblock %}
