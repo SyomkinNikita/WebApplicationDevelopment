@@ -16,49 +16,54 @@
   <link rel="stylesheet" href="../static/app/css/style.css" type="text/css">
 <head>
   {% block title %}<title>Интернет магазин</title>{% endblock %}
-
 </head>
 
 <body>
-<br>
-<br>
-<br>
+<header>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
+            <div class="container">
+                <a href="{% url 'index' %}" class="navbar-brand">Menu</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+                aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle Navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-  <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="basicExampleNav">
+                    <ul class="navbar-nav mr-auto smooth-scroll">
+                        <li class="nav-item">
+                            <a href="{% url 'carpictures' %}" class="nav-link waves-effect waves-light">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#best-features" class="nav-link waves-effect waves-light">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#examples" class="nav-link waves-effect waves-light">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#gallery" class="nav-link waves-effect waves-light">News</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#contact" class="nav-link waves-effect waves-light">Support</a>
+                        </li>
+                    </ul>
 
-    <div class="row">
-      <div class="col-sm-2">
-      {% block sidebar %}
-      <ul class="sidebar-nav">
-          <li><a href="{% url 'index' %}">Home</a></li>
-          <li><a href="{% url 'carpictures' %}">Наш ассортимент</a></li>
-          <li><a href="">Индивидуальная работа</a></li>
-      </ul>
-     {% endblock %}
-      </div>
-      <div class="col-sm-10 ">
-      {% block content %}{% endblock %}
-      {% block pagination %}
-  {% if is_paginated %}
-      <div class="pagination">
-          <span class="page-links">
-              {% if page_obj.has_previous %}
-                  <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">previous</a>
-              {% endif %}
-              <span class="page-current">
-                  Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-              </span>
-              {% if page_obj.has_next %}
-                  <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">next</a>
-              {% endif %}
-          </span>
-      </div>
-  {% endif %}
-{% endblock %}
-      </div>
-    </div>
+                        <ul class="navbar-nav nav-flex-icons">
+                        <li class="nav-item">
+                            <a href="https://www.instagram.com/nikita_s123/" class="nav-link waves-effect waves-light">
+                                <i class="fa fa-instagram" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        </ul>
 
-  </div>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+
+{% block content %}{% endblock %}
+
+
 <!-- jQuery -->
   <script type="text/javascript" src="../static/app/js/jquery.min.js"></script>
   <!-- Bootstrap tooltips -->
@@ -69,6 +74,8 @@
   <script type="text/javascript" src="../static/app/js/mdb.min.js"></script>
   <!-- Your custom scripts (optional) -->
   <script type="text/javascript"></script>
+    <script src="https://use.fontawesome.com/47e351e4ff.js"></script>
+
 
 </body>
 </html>

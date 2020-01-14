@@ -1,8 +1,29 @@
 html, body, header, #intro{
     height: 100%;
 }
-body{
-    background: url("../img/red-and-yellow-wallpaper-891030.jpg");
+#intro{
+    background: url("../img/white-and-blue-surface-illustration-804269.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     background-size: cover;
+}
+.top-nav-collapse{
+    background-color: #24355C;
+}
+@media (max-width: 768px) {
+    .navbar:not(.top-nav-collapse){
+        background: #24355C;
+    }
+}
+.map-container{
+overflow:hidden;
+padding-bottom:56.25%;
+position:relative;
+height:0;
+}
+.map-container iframe{
+left:0;
+top:0;
+height:100%;
+width:100%;
+position:absolute;
 }

@@ -3,5 +3,6 @@
 {% block content %}
   <h1>Название: {{ carpicture_detail.title }}</h1>
 
-  <p><strong>Изображение</strong>{{ carpicture_detail.image }}</p>
+  <a href="{{ carpicture_detail.get_absolute_url }}">{{ pictures.title }}</a>
+    <img src="{{ carpicture_detail.image.url }}" alt="r">
 {% endblock %}

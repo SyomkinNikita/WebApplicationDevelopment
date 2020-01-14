@@ -1,70 +1,223 @@
 {% extends "base.html" %}
 
 {% block content %}
-<header>
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
-            <div class="container">
-                <a href="{% url 'index' %}" class="navbar-brand">Menu</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
-                aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle Navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
-                <div class="collapse navbar-collapse" id="basicExampleNav">
-                    <ul class="navbar-nav mr-auto smooth-scroll">
-                        <li class="nav-item">
-                            <a href="{% url 'carpictures' %}" class="nav-link waves-effect waves-light">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#best-features" class="nav-link waves-effect waves-light">Shop</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#examples" class="nav-link waves-effect waves-light">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#gallery" class="nav-link waves-effect waves-light">News</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#contact" class="nav-link waves-effect waves-light">Support</a>
-                        </li>
-                    </ul>
-
-                        <ul class="navbar-nav nav-flex-icons">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link waves-effect waves-light">
-                                <i class="fa fa-instagram"></i>
-                            </a>
-                        </li>
-                        </ul>
-
+    <main class="mt-5">
+    <div class="container">
+        <section id="best-features" class="text-center">
+            <h2 class="mb-5 font-weight-bold">Best Features</h2>
+            <div class="row d-flex justify-content-center mb-4">
+                <div class="col-md-8">
+                    <p class="black-text">
+                        Что мы предлагаем?
+                    </p>
                 </div>
             </div>
-        </nav>
-    <div id="intro" class="view">
-        <div class="mask rgba-black-strong">
-            <div class="container-fluid d-flex align-items-center justify-content-center h-100">
-                <div class="row d-flex justify-content-center text-center">
-                    <div class="col-md-10">
-                        <h2 class="display-4 font-weight-bold white-text pt-5 mb-2">
-                            Главная страница
-                        </h2>
-                        <hr class="hr-light">
-                        <h4 class="white-text my-4">Testing</h4>
+            <div class="row">
+                <div class="col-md-4 mb-5">
+                    <i class="fa fa-archive fa-4x rgba-amber-light-text"></i>
+                    <h4 class="my-4 font-weight-bold">Archive</h4>
+                    <p class="black-text">Предоставляем свой архив картинок</p>
+                </div>
+                 <div class="col-md-4 mb-5">
+                    <i class="fa fa-archive fa-4x rgba-amber-light-text"></i>
+                    <h4 class="my-4 font-weight-bold">Archive</h4>
+                    <p class="black-text">Делаем под заказ по вашим желаниям</p>
+                </div>
+                 <div class="col-md-4 mb-5">
+                    <i class="fa fa-archive fa-4x rgba-amber-light-text"></i>
+                    <h4 class="my-4 font-weight-bold">Archive</h4>
+                    <p class="black-text">Подбираем индивидуальный дизайн</p>
+                </div>
+            </div>
+        </section>
 
+        <hr class="my-5">
+
+        <section id="examples" class="text-center">
+            <h2 class="mb-5 font-weight-bold">Наши лучшие работы</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-12 mb-4">
+                    <div class="view overlay zoom">
+                        <img src="/static/app/img/дятел.png" alt="" class="img-fluid">
+                        <div class="mask flex-center"></div>
                     </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="view overlay zoom">
+                        <img src="/static/app/img/дятел.png" alt="" class="img-fluid">
+                        <div class="mask flex-center"></div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="view overlay zoom">
+                        <img src="/static/app/img/дятел.png" alt="" class="img-fluid">
+                        <div class="mask flex-center"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-5">
+        <section id="gallery">
+            <h2 class="mb-5 font-weight-bold text-center">Gallery</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
+                             <li data-target="#carousel-example-1z" data-slide-to="1" class=""></li>
+                             <li data-target="#carousel-example-1z" data-slide-to="2" class=""></li>
+                        </ol>
+                        <div class="carousel-inner z-depth-1-half" role="listbox">
+                            <div class="carousel-item active">
+                                <img src="/static/app/img/брелок1.jpg" alt="" class="d-block w-100">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/static/app/img/брелок2.jpg" alt="" class="d-block w-100">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/static/app/img/брелок3.jpg" alt="" class="d-block w-100">
+                            </div>
+                        </div>
+                        <a href="#carousel-example-1z" class="carousel-control-prev" role="button" data-slide="prev">
+                           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        </a>
+                        <a href="#carousel-example-1z" class="carousel-control-next" role="button" data-slide="next">
+                           <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <h4 class="md-3">
+                        <strong>Брелки</strong>
+                    </h4>
+                    <p>Также изготавливаем такие брелки под заказ!</p>
+                    <p>Дизайн может быть абсолютно. Любая ваша безумная идея будет воплощена</p>
+                    <a href="#" class="btn btn-primary btn md waves-effect waves-light">Read More</a>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-5">
+
+        <section id="contact">
+            <h2 class="mb-5 font-weight-bold text-center">Связаться с нами</h2>
+            <div class="row">
+                <div class="col-lg-5 col-md-12">
+                    <form class="p-5">
+                        <div class="md-form form-sm">
+                            <i class="fa fa-user prefix grey-text"></i>
+                            <input type="text" id="form3" class="form-control form-control-sm">
+                            <label for="form3">Ваше Имя</label>
+                        </div>
+                        <div class="md-form form-sm">
+                            <i class="fa fa-envelope prefix grey-text"></i>
+                            <input type="text" id="form2" class="form-control form-control-sm">
+                            <label for="form3">Ваша почта</label>
+                        </div>
+                        <div class="md-form form-sm">
+                            <i class="fa fa-tag prefix grey-text"></i>
+                            <input type="text" id="form32" class="form-control form-control-sm">
+                            <label for="form3">Предмет</label>
+                        </div>
+                        <div class="md-form form-sm">
+                            <i class="fa fa-pencil prefix grey-text"></i>
+                            <textarea type="text" id="form8" class="md-textarea form-control form-control-sm" rows="3">
+                            </textarea>
+                            <label for="form3">Ваше сообщение</label>
+                        </div>
+                        <div class="text-center mt-4">
+                            <button class="btn btn-primary waves-effect waves-light">Отправить
+                                <i class="fa fa-paper-plane-o ml-1"></i></button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-7 col-md-12">
+                    <div class="row text-center">
+                        <div class="col-lg-4 col-md-12 mb-3">
+                            <p><i class="fa fa-map fa-1x mr-2 grey-text"></i>Москва</p>
+                        </div>
+                        <div class="col-lg-4 col-md-6 mb-3">
+                            <p><i class="fa fa-building fa-1x mr-2 grey-text"></i>Понедельник - Пятница</p>
+                        </div>
+                        <div class="col-lg-4 col-md-6 mb-3">
+                            <p><i class="fa fa-phone fa-1x mr-2 grey-text"></i>7-985-121-40-62</p>
+                        </div>
+                    </div>
+                    <!--Google map-->
+                    <div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 500px">
+                        <iframe src="https://maps.google.com/maps?q=Люберцы,+Московская+обл.,
+                        +Россия&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                        frameborder="0"
+                        style="border:0" allowfullscreen></iframe>
+                    </div>
+
+                    <!--Google Maps-->
+                </div>
+            </div>
+        </section>
+
+
+    </div>
+    </main>
+
+    <footer class="page-footer font-small unique-color-dark pt-0">
+    <div class="primary-color">
+        <div class="container">
+            <div class="row py-4 d-flex align items-center">
+                <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+                    <h6 class="mb-0 white-text">Свяжитесь с нами в социальной сети</h6>
+                </div>
+                <div class="col-md-6 col-lg-7 text-center text-md-right">
+                    <a href="#" class="fb-ic ml-0">
+                        <i class="fa fa-facebook white-text mr-4"></i>
+                    </a>
+                    <a href="#" class="fb-ic ml-0">
+                        <i class="fa fa-instagram white-text mr-4"></i>
+                    </a>
+                    <a href="#" class="fb-ic ml-0">
+                        <i class="fa fa-youtube white-text mr-4"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
-    </header>
+
+    <div class="container mt-5 mb-4 text-center text-md-left">
+        <div class="row mt-3">
+            <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
+                <h6 class="text-uppercase font-weight-bold"><strong>Наша компания</strong></h6>
+                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                <p>Наша компания занимается производством наклеек для автомобилей</p>
+            </div>
+
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                <h6 class="text-uppercase font-weight-bold"><strong>Наш продукт</strong></h6>
+                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                <p><a href="#">Брелки</a></p>
+                <p><a href="#">Наклейки</a></p>
+            </div>
+
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                <h6 class="text-uppercase font-weight-bold"><strong>Связь</strong></h6>
+                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                <p><a href="#">Account</a></p>
+                <p><a href="#">Help</a></p>
+            </div>
+
+            <div class="col-md-4 col-lg-3 col-xl-3">
+                <h6 class="text-uppercase font-weight-bold"><strong>Контакты</strong></h6>
+                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                <p><i class="fa fa-home mr-3"></i>Москва</p>
+                <p><i class="fa fa-envelope mr-3"></i>79851214062@yandex.ru</p>
+                <p><i class="fa fa-phone mr-3"></i>7-985-121-40-62</p>
+            </div>
 
 
-  <p>The library has the following record counts:</p>
-  <ul>
-    <li><strong>Books:</strong> {{ num_image }}</li>
-    <li><strong>Copies:</strong> {{ num_instance }}</li>
-    <li><strong>Copies available:</strong> {{ num_instance_available }}</li>
-  </ul>
 
-
+        </div>
+    </div>
+    </footer>
 {% endblock %}
