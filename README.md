@@ -1,2 +1,2 @@
 # WebApplicationDevelopment
-![](//Screenshot_21.png/150x100)
+![](//Screenshot_21.png)
